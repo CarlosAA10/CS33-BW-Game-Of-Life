@@ -78,7 +78,7 @@ class Buttons extends React.Component {
           </button>
           <button className="btn btn-default" onClick={this.props.seed}>
             Random
-          </button><br/>
+          </button><br/><br/>
           <DropdownButton
           title="Size"
           id="size-menu"
@@ -242,7 +242,7 @@ class Rules extends React.Component {
   render() {
 
     return (
-      <div className="center">
+      <div className="rules">
         <p>The rules are quite simple, but first an overview. The game of life is a class of discrete model known as Cellular Automaton, CA, and is made up of a grid of cells whose behavior is governed by a simple set of rules</p><br/>
         <p>In the Game Of Life, these rules examine each cell of the grid. For each cell, it counts that cell's eight neighbors (up, down, left, right, and diagonals), and then act on that result</p>
         <ul>
