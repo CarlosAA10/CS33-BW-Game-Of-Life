@@ -78,9 +78,9 @@ class Buttons extends React.Component {
           </button>
           <button className="btn btn-default" onClick={this.props.seed}>
             Random
-          </button>
+          </button><br/>
           <DropdownButton
-          title="Grid Size"
+          title="Size"
           id="size-menu"
           onSelect={this.handleSelect}
           >
@@ -194,8 +194,8 @@ class Main extends React.Component {
         this.rows = 25; 
       break;
       case "2":
-        this.cols = 40; 
-        this.rows = 40;
+        this.cols = 45; 
+        this.rows = 45;
       break; 
       default:
         this.cols = 50; 
@@ -210,7 +210,8 @@ class Main extends React.Component {
   render() {
     return (
       <div>
-        <h1>The Game of Life</h1>
+        <h1>The Game of Life</h1><br/>
+        <h1>By John Conway</h1>
         <Grid 
         rows={this.rows}
         cols={this.cols}
@@ -226,12 +227,37 @@ class Main extends React.Component {
         gridSize={this.gridSize}
         seed={this.seed}
         />
-        <h2>Generations: {this.state.generation}</h2>
+        <h2>Generations: {this.state.generation}</h2><br/>
+        <div>
+          <h2>Welcome To Conway's Game Of Life</h2>
+          <Rules />
+        </div>
       </div>
     )
   }
 }
 
+class Rules extends React.Component {
+
+  render() {
+
+    return (
+      <div className="center">
+        <p>The rules are quite simple, but first an overview. The game of life is a class of discrete model known as Cellular Automaton, CA, and is made up of a grid of cells whose behavior is governed by a simple set of rules</p><br/>
+        <p>In the Game Of Life, these rules examine each cell of the grid. For each cell, it counts that cell's eight neighbors (up, down, left, right, and diagonals), and then act on that result</p>
+        <ul>
+          <li>If the cell is alive and has 2 or 3 neighbors, then it remains alive.</li>
+          <li>If the cell is alive and has less than 2 neighbors, that cell dies as if by underpopulation.</li>
+          <li>if the cell is alive and has more than 3 neighbors, that cell dies as if by overpopulation.</li>
+          <li> If the cell is dead and has exactly 3 neightbors, then it comes to life. Else if remains dead.</li>
+        </ul>
+
+        <br/><p>From the following rules above, you can notice the cells create unique patterns as they traverse.</p>
+        <br/><p>In this simulation of the Game Of Life, You can toggle cells alive on the grid by clicking on the grids. You can toggle cells dead by clicking on alive cell to terminate. You are also given the option to slow the simulation down or continue on the current speed with fast button. You can also randomly generate cells to be alive by clicking on random. Lastly You can select the size of grid you prefer to use, however you must generate that cell with seeds to see it displayed.</p>
+      </div>
+    )
+  }
+}
 function arrayClone(arr) {
   return JSON.parse(JSON.stringify(arr))
 }
